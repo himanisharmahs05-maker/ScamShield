@@ -30,6 +30,7 @@ import {
   Users,
 } from "lucide-react";
 import { fetchHistory } from "../services/api";
+import { API_URL } from "../config";
 import "./Dashboard.css"; // <-- ADD THIS IMPORT
 
 // ─── Font loader ───────────
@@ -293,7 +294,7 @@ const Dashboard = ({ user, token, onRequestLogin }) => {
     if (!token) return;
     setLoadingAdmin(true);
     try {
-      const res = await fetch("http://localhost:8000/api/v1/admin/users", {
+      const res = await fetch(`${API_URL}/admin/users`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.ok) {

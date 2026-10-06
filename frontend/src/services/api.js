@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const API_BASE_URL = 'http://localhost:8000/api/v1';
+import { API_URL as API_BASE_URL } from '../config';
 
 export const scanUrl = async (url, token) => {
   // Updated to support token if you haven't already

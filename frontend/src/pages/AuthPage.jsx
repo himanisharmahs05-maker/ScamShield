@@ -3,6 +3,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import './AuthPage.css';
+import { API_URL } from '../config';
 
 // We accept onLogin as a prop so we can tell App.jsx that the user logged in
 const AuthPage = ({ onLogin }) => {
@@ -18,7 +19,7 @@ const AuthPage = ({ onLogin }) => {
   // 1. Handle Google Authentication
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
-      const res = await fetch('http://localhost:8000/api/v1/auth/google-login', {
+      const res = await fetch(`${API_URL}/auth/google-login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token: credentialResponse.credential }),
@@ -55,7 +56,7 @@ const AuthPage = ({ onLogin }) => {
         fd.append("username", email);
         fd.append("password", password);
         
-        const res = await fetch('http://localhost:8000/api/v1/login', {
+        const res = await fetch(`${API_URL}/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -81,7 +82,7 @@ const AuthPage = ({ onLogin }) => {
         
       } else {
         // Registration Flow
-        const res = await fetch('http://localhost:8000/api/v1/register', {
+        const res = await fetch(`${API_URL}/register`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password, full_name: fullName }),
