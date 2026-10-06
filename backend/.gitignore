@@ -1,0 +1,26 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.pyvenv.cfg
+
+# Environment variables
+.env
+
+# ML model artifacts
+*.pkl
+*.h5
+*.pt
+*.joblib
+
+# OS
+.DS_Store
+Thumbs.db
+
+#tests for modules
+test_module1.py
+test_module2.py
+test_module3.py
+

@@ -1,0 +1,46 @@
+services:
+  # 1. PostgreSQL Database
+  safenav_db:
+    image: postgres:15-alpine
+    container_name: safenav_postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=safenav_user
+      - POSTGRES_PASSWORD=safenav_password
+      - POSTGRES_DB=safenav_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # 2. Python Backend
+  backend:
+    build: ./backend
+    container_name: safenav_backend
+    ports:
+      - "8000:8000"
+    environment:
+      # Updated to use PostgreSQL connection string
+      - DATABASE_URL=postgresql+asyncpg://safenav_user:safenav_password@safenav_db:5432/safenav_db
+      - SECRET_KEY=CHANGE_THIS_TO_A_SUPER_SECRET_KEY
+    depends_on:
+      - safenav_db
+    volumes:
+      - ./backend:/app  # Live reload for development
+
+  # 3. React Frontend
+  frontend:
+    build: ./frontend
+    container_name: safenav_frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules # Avoid overwriting node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000
+
+volumes:
+  postgres_data:
