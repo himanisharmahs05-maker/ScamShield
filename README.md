@@ -341,8 +341,8 @@ If a check fails (e.g., WHOIS timeout), it is marked **Indeterminate** and remai
 ### Docker Mode
 
 ```bash
-git clone https://github.com/su7ox/SafeNav.git
-cd SafeNav
+git clone https://github.com/himanisharmahs05-maker/ScamShield.git
+cd ScamShield
 docker-compose up -d
 ```
 
