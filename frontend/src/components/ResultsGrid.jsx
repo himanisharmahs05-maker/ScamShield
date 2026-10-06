@@ -1,6 +1,6 @@
 import React from 'react';
 import { ModuleCard } from './ModuleCard';
-import './SafeNavResults.css';
+import './ScamShieldResults.css';
 
 export const ResultsGrid = ({ results }) => {
   if (!results || !results.details) return null;

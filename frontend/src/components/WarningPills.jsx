@@ -1,5 +1,5 @@
 import React from 'react';
-import './SafeNavResults.css';
+import './ScamShieldResults.css';
 
 export const WarningPills = ({ flags = [] }) => {
   if (!flags || flags.length === 0) return null;

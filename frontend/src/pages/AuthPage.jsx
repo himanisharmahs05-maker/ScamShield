@@ -32,8 +32,8 @@ const AuthPage = ({ onLogin }) => {
       if (onLogin) {
         onLogin(data.access_token, data.user); 
       } else {
-        localStorage.setItem("safenav_token", data.access_token);
-        localStorage.setItem("safenav_user", JSON.stringify(data.user)); // Store user!
+        localStorage.setItem("scamshield_token", data.access_token);
+        localStorage.setItem("scamshield_user", JSON.stringify(data.user)); // Store user!
       }
       
       toast.success('Successfully logged in with Google!');
@@ -72,8 +72,8 @@ const AuthPage = ({ onLogin }) => {
         if (onLogin) {
           onLogin(data.access_token, data.user);
         } else {
-          localStorage.setItem("safenav_token", data.access_token);
-          localStorage.setItem("safenav_user", JSON.stringify(data.user));
+          localStorage.setItem("scamshield_token", data.access_token);
+          localStorage.setItem("scamshield_user", JSON.stringify(data.user));
         }
         
         toast.success('Logged in successfully!');

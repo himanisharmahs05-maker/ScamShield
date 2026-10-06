@@ -253,7 +253,7 @@ const ScannerView = ({ token, onRequestLogin }) => {
               </div>
             </div>
 
-            {/* SAFENAV AI SECURITY COPILOT */}
+            {/* SCAMSHIELD AI SECURITY COPILOT */}
             {(() => {
               const ai = result.ai_summary || result.details?.ai_summary || {};
               const riskScore = result.risk_score;
@@ -530,9 +530,9 @@ const AuthModal = ({ onClose, onLogin, title }) => {
 // ROOT APP  —  Router Shell
 // ─────────────────────────────────────────────
 const App = () => {
-  const [token, setToken] = useState(localStorage.getItem("safenav_token"));
+  const [token, setToken] = useState(() => localStorage.getItem("scamshield_token"));
   const [user, setUser] = useState(() => {
-    const savedUser = localStorage.getItem("safenav_user");
+    const savedUser = localStorage.getItem("scamshield_user");
     return savedUser ? JSON.parse(savedUser) : null;
   });
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -542,7 +542,7 @@ const App = () => {
 
   // Restore theme on mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem("safenav_theme");
+    const savedTheme = localStorage.getItem("scamshield_theme");
     if (savedTheme === "dark") {
       setDarkMode(true);
       document.documentElement.setAttribute("data-theme", "dark");
@@ -554,10 +554,10 @@ const App = () => {
     setDarkMode(newMode);
     if (newMode) {
       document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem("safenav_theme", "dark");
+      localStorage.setItem("scamshield_theme", "dark");
     } else {
       document.documentElement.removeAttribute("data-theme");
-      localStorage.setItem("safenav_theme", "light");
+      localStorage.setItem("scamshield_theme", "light");
     }
   };
 
@@ -568,11 +568,11 @@ const App = () => {
 
   const handleLogin = (newToken, userData) => {
     setToken(newToken);
-    localStorage.setItem("safenav_token", newToken);
+    localStorage.setItem("scamshield_token", newToken);
 
     if (userData) {
       setUser(userData);
-      localStorage.setItem("safenav_user", JSON.stringify(userData));
+      localStorage.setItem("scamshield_user", JSON.stringify(userData));
     }
 
     setShowAuthModal(false);
@@ -580,8 +580,8 @@ const App = () => {
 
   const handleLogout = () => {
     setToken(null);
-    localStorage.removeItem("safenav_token");
-    localStorage.removeItem("safenav_user");
+    localStorage.removeItem("scamshield_token");
+    localStorage.removeItem("scamshield_user");
     setUser(null);
     navigate("/");
     toast("Logged out.", { icon: "👋" });

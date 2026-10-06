@@ -1,5 +1,5 @@
 import React from "react";
-import "./SafeNavResults.css";
+import "./ScamShieldResults.css";
 
 export const FieldRow = ({ label, value, type = "text" }) => {
   if (value === undefined || value === null || value === "") return null;

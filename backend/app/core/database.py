@@ -27,7 +27,7 @@ def _is_service_listening(host="localhost", port=5432) -> bool:
 _raw_db_url = os.environ.get("DATABASE_URL")
 if not _raw_db_url:
     if _is_service_listening("127.0.0.1", 5432) or _is_service_listening("localhost", 5432):
-        _DATABASE_URL = "postgresql+asyncpg://safenav_user:safenav_password@localhost:5432/safenav_db"
+        _DATABASE_URL = "postgresql+asyncpg://scamshield_user:scamshield_password@localhost:5432/scamshield_db"
     else:
         _DATABASE_URL = "sqlite+aiosqlite:///./scamshield.db"
 else:

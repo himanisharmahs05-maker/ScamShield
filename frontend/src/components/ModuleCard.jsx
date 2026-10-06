@@ -1,7 +1,7 @@
 import React from 'react';
 import { FieldRow } from './FieldRow';
 import { WarningPills } from './WarningPills';
-import './SafeNavResults.css';
+import './ScamShieldResults.css';
 export const ModuleCard = ({ title, icon, statusBadge, fields = [], warningFlags = [] }) => {
   return (
     <div className="module-card">
