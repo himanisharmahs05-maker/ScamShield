@@ -5,9 +5,7 @@
   <img src="https://img.shields.io/badge/Phase-1%20Static%20Analysis-blue?style=for-the-badge" alt="Phase 1"/>
 </p>
 
-<p align="center">
-  <strong>Developers:</strong> Himani Sharma &bull; Kashish &bull; Aastha &bull; Anushka Varshney
-</p>
+
 
 <p align="center">
   <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React"/>
